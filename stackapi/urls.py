@@ -3,5 +3,7 @@ from . import views
 
 
 urlpatterns =[
-  path('api/', views.stackapi)
+  path('api/', views.StackApiView),
+  path('api/<str:name_or_pk>/',views.EditStackApiView)
 ]
+
