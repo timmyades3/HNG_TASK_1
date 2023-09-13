@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['.vercel.app','hng-task-1-2xlb.onrender.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'hng-task-1-2xlb.onrender.com','127.0.0.1','localhost']
 
 
 # Application definition
@@ -135,6 +135,7 @@ USE_TZ = True
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = 'staticfiles_build/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
