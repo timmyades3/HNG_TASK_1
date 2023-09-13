@@ -81,10 +81,3 @@ python manage.py runserver
 
 The server should be accessible at `http://localhost:8000/` in your web browser.
 
-## Basic Register, Login, and Logout
-
-### Register
-
-1. Open your web browser and go to `http://localhost:8000/Register/` to access the register page.
-2. Fill out the Register form with the required information, such as username, email, and password.
-3. Click the "Register" button to create a new user account.
