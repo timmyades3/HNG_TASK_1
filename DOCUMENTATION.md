@@ -264,3 +264,45 @@ The server should be accessible at `http://localhost:8000/` in your web browser.
 For production deployment, consider using a production-ready web server and database setup. 
 Check out [this guide](https://neon.tech/docs/guides/django) for more information.
 
+## Usage test
+
+To use the api, you can ethier use the `py_client` folder in the repo or you can test using other API testing sites like postman
+
+## Usage with `py_client` Folder
+
+To use the API with the provided `py_client` folder in the repository, follow these steps:
+
+1. **Navigate to `py_client` Folder:**
+
+   After completing the local development setup as described earlier, open your terminal and navigate to the `py_client` folder by running the following command:
+
+   ```bash
+   cd py_client
+   ```
+
+2. **Execute the Python Script:**
+
+   Inside the `py_client` folder, you will find a file named `All.py`. To execute the Python script, run the following command in your terminal:
+
+   ```bash
+   python All.py
+   ```
+
+3. **Select the Request Method:**
+
+   The script will prompt you to enter the HTTP request method you want to perform (e.g., GET, POST, PUT, DELETE).
+
+4. **Specify the API Endpoint:**
+
+   After entering the request method, the script will ask you for the API endpoint. Ensure that you use the [Endpoints](#endpoints) format when specifying the endpoint.
+
+5. **Provide Additional Information (If Required):**
+
+   - If you are using the POST or PUT method, the script will ask you for additional information (name).
+
+6. **Receive API Response:**
+
+   - The script will make the API request based on your input.
+   - You will receive a JSON response and a status code in the terminal.
+
+By following these steps, you can effectively use the `py_client` folder to interact with the API and test its functionality.
