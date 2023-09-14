@@ -1,5 +1,25 @@
 # HNG_TASK_1
 
+## Table of Contents
+
+- [View live](##view-live)
+- [Local Development Setup](#Local-Development-Setup)
+  - [Clone-the-Repository](#1.Clone-the-Repository)
+  - [Create a Virtual Environment](#2.-Create-a-Virtual-Environment)
+  - [Activate the Virtual Environment](#3.-Activate-the-Virtual-Environment)
+  - [Install Dependencies](#4.-Install-Dependencies)
+  - [Configure Environment Variables](#5.-Configure-Environmen-Variables)
+  - [Create a Superuser (Optional)](#7.-Create-a-Superuser-(Optional))
+  - [Apply Database Migrations](#6.-Apply-Database-Migrations)
+  - [Run the Development Server](#8Run-the-Development-Server)
+- [Endpoints](#endpoints)
+- [Usage](#usage)
+- [Sample Requests and Responses](#sample-requests-and-responses)
+- [Contributing](#contributing)
+
+
+- [Usage](#usage)
+
 ## View live
  
  https://hng-task-1-2xlb.onrender.com/api/
@@ -60,6 +80,10 @@ change the `.envexample` file in the project root  to `.env`, it contains necess
 Apply the database migrations to create the database schema:
 
 ```bash
+python manage.py makemigrations
+```
+After that run 
+```bash
 python manage.py migrate
 ```
 
@@ -81,3 +105,128 @@ python manage.py runserver
 
 The server should be accessible at `http://localhost:8000/` in your web browser.
 
+## Endpoint 
+
+- create `/api`
+- read `/api`
+- update `/api/personid` OR `/api/personname`
+- create `/api/personid` OR `/api/personname`
+
+## Usage
+
+The API is designed to manage persons. You can create, retrieve, update, and delete persons using the provided endpoints.
+
+## Sample Requests and Responses
+
+### 1. Create a Person
+
+**Request:**
+
+```http
+POST /api
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+```
+
+**Response (Success):**
+
+```json  
+  "data": {
+    "_id": "UniqueID",
+    "name": "John Doe"
+  }
+```
+**Response (Error - Validation Failed):**
+
+```json
+{
+    "detail": "JSON parse error - Expecting value: line 1 column 9 (char 8)"
+}
+```
+### Get a Person
+
+**Request:**
+
+```http
+GET /api/personId
+```
+OR
+```http
+GET /api/personName
+```
+**Response (Success):**
+
+```json
+  "data": {
+    "_id": "UniqueID",
+    "name": "John Doe"
+  }
+
+```
+
+**Response (Error - Person Not Found):**
+
+```json
+  {
+    "detail": "Not found."
+}
+```
+### Update a Person
+
+**Request:**
+
+```http
+PUT /api/personId OR personName/
+Content-Type: application/json
+
+{
+  "name": "Updated John Doe"
+}
+```
+
+**Response (Success):**
+
+```json
+  "data": {
+    "_id": "UniqueID",
+    "name": "Updated John Doe"
+  }
+```
+
+**Response (Error - Validation Failed):**
+
+```json
+{
+    "detail": "JSON parse error - Expecting value: line 1 column 9 (char 8)"
+}
+```
+### Delete a Person
+
+**Request:**
+
+```http
+DELETE /api/personId OR personName/
+```
+
+**Response (Success):**
+
+```json
+{
+  "detail": "Person deleted successfully!"
+}
+```
+
+**Response (Error - Person Not Found):**
+
+```json
+{
+  "detail": "not found"
+}
+```
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
