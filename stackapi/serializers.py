@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Stack
+from .models import Person
 
 
-class StackSerializer(serializers.ModelSerializer):
+class PersonSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Stack
+        model = Person
         fields = [
             'id',
             'name', 
