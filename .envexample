@@ -1,0 +1,6 @@
+SECRET_KEY = 'django-insecure-n%tg6=k3c+!@17g&mk5y9z&-1y!juj)xq0ty8-va1*ps%xfcmj'
+DEBUG = True
+PGDATABASE ='your database name'
+PGUSER ='your data user'
+PGPASSWORD ='your database password'
+PGHOST ='your database host'

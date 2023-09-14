@@ -15,18 +15,18 @@ from .models import Stack
 def StackApiView(request, pk=None, *args, **kwargs):
     method = request.method
 
-    if method == "GET":
-        #add data using query_parameter
-        name = request.GET.get('name')
-        print(type(name))
+    # if method == "GET":
+    #     #add data using query_parameter
+    #     name = request.GET.get('name')
+    #     print(type(name))
         
-        if name and type(name)==str :
-          Stack.objects.create(name=name)
+    #     if name and type(name)==str :
+    #       Stack.objects.create(name=name)
 
-        # list view
-        queryset = Stack.objects.all()
-        data = StackSerializer(queryset, many=True).data
-        return Response(data)
+    #     # list view
+    #     queryset = Stack.objects.all()
+    #     data = StackSerializer(queryset, many=True).data
+    #     return Response(data)
        
     if method == "POST":
         print(request.POST)
