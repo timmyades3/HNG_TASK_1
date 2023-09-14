@@ -1,8 +1,25 @@
 # HNG_TASK_1
 
+## Table of Contents
+
+- [View live](#view-live)
+- [Local Development Setup](#local-development-setup)
+  - [Clone the Repository](#1-clone-the-repository)
+  - [Create a Virtual Environment](#2-create-a-virtual-environment)
+  - [Activate the Virtual Environment](#3-activate-the-virtual-environment)
+  - [Install Dependencies](#4-install-dependencies)
+  - [Configure Environment Variables](#5-configure-environment-variables)
+  - [Create a Superuser (Optional)](#6-create-a-superuser-optional)
+  - [Apply Database Migrations](#7-apply-database-migrations)
+  - [Run the Development Server](#8-run-the-development-server)
+- [Endpoints](#endpoints)
+- [Usage](#usage)
+- [Sample Requests and Responses](#sample-requests-and-responses)
+- [Contributing](#contributing)
+
 ## View live
- 
- https://hng-task-1-2xlb.onrender.com/api/
+
+[View live](https://hng-task-1-2xlb.onrender.com/api/)
 
 ## Local Development Setup
 
@@ -51,13 +68,17 @@ pip install -r requirements.txt
 
 ### 5. Configure Environment Variables
 
-change the `.envexample` file in the project root  to `.env`, it contains necessary environment variables. You can usually find these settings in your project's `settings.py` file.
-
-
+Change the `.envexample` file in the project root to `.env`; it contains necessary environment variables. You can usually find these settings in your project's `settings.py` file.
 
 ### 6. Apply Database Migrations
 
 Apply the database migrations to create the database schema:
+
+```bash
+python manage.py makemigrations
+```
+
+After that run:
 
 ```bash
 python manage.py migrate
@@ -81,10 +102,132 @@ python manage.py runserver
 
 The server should be accessible at `http://localhost:8000/` in your web browser.
 
-## Basic Register, Login, and Logout
+## Endpoints
 
-### Register
+- Create `/api`
+- Read `/api`
+- Update `/api/personid` OR `/api/personname`
+- Create `/api/personid` OR `/api/personname`
 
-1. Open your web browser and go to `http://localhost:8000/Register/` to access the register page.
-2. Fill out the Register form with the required information, such as username, email, and password.
-3. Click the "Register" button to create a new user account.
+## Usage
+
+The API is designed to manage persons. You can create, retrieve, update, and delete persons using the provided endpoints.
+
+## Sample Requests and Responses
+
+### 1. Create a Person
+
+**Request:**
+
+```http
+POST /api
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+```
+
+**Response (Success):**
+
+```json  
+  "data": {
+    "_id": "UniqueID",
+    "name": "John Doe"
+  }
+```
+
+**Response (Error - Validation Failed):**
+
+```json
+{
+    "detail": "JSON parse error - Expecting value: line 1 column 9 (char 8)"
+}
+```
+
+### Get a Person
+
+**Request:**
+
+```http
+GET /api/personId
+```
+OR
+```http
+GET /api/personName
+```
+
+**Response (Success):**
+
+```json
+  "data": {
+    "_id": "UniqueID",
+    "name": "John Doe"
+  }
+```
+
+**Response (Error - Person Not Found):**
+
+```json
+{
+    "detail": "Not found."
+}
+```
+
+### Update a Person
+
+**Request:**
+
+```http
+PUT /api/personId OR personName/
+Content-Type: application/json
+
+{
+  "name": "Updated John Doe"
+}
+```
+
+**Response (Success):**
+
+```json
+  "data": {
+    "_id": "UniqueID",
+    "name": "Updated John Doe"
+  }
+```
+
+**Response (Error - Validation Failed):**
+
+```json
+{
+    "detail": "JSON parse error - Expecting value: line 1 column 9 (char 8)"
+}
+```
+
+### Delete a Person
+
+**Request:**
+
+```http
+DELETE /api/personId OR personName/
+```
+
+**Response (Success):**
+
+```json
+{
+  "detail": "Person deleted successfully!"
+}
+```
+
+**Response (Error - Person Not Found):**
+
+```json
+{
+  "detail": "not found"
+}
+```
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
