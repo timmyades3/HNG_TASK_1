@@ -268,7 +268,7 @@ Check out [this guide](https://neon.tech/docs/guides/django) for more informatio
 
 To use the api, you can ethier use the `py_client` folder in the repo or you can test using other API testing sites like postman
 
-## Usage with `py_client` Folder
+### Usage with `py_client` Folder
 
 To use the API with the provided `py_client` folder in the repository, follow these steps:
 
