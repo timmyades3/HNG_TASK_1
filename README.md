@@ -2,27 +2,24 @@
 
 ## Table of Contents
 
-- [View live](##view-live)
-- [Local Development Setup](#Local-Development-Setup)
-  - [Clone-the-Repository](#1.Clone-the-Repository)
-  - [Create a Virtual Environment](#2.-Create-a-Virtual-Environment)
-  - [Activate the Virtual Environment](#3.-Activate-the-Virtual-Environment)
-  - [Install Dependencies](#4.-Install-Dependencies)
-  - [Configure Environment Variables](#5.-Configure-Environmen-Variables)
-  - [Create a Superuser (Optional)](#7.-Create-a-Superuser-(Optional))
-  - [Apply Database Migrations](#6.-Apply-Database-Migrations)
-  - [Run the Development Server](#8Run-the-Development-Server)
+- [View live](#view-live)
+- [Local Development Setup](#local-development-setup)
+  - [Clone the Repository](#1-clone-the-repository)
+  - [Create a Virtual Environment](#2-create-a-virtual-environment)
+  - [Activate the Virtual Environment](#3-activate-the-virtual-environment)
+  - [Install Dependencies](#4-install-dependencies)
+  - [Configure Environment Variables](#5-configure-environment-variables)
+  - [Create a Superuser (Optional)](#6-create-a-superuser-optional)
+  - [Apply Database Migrations](#7-apply-database-migrations)
+  - [Run the Development Server](#8-run-the-development-server)
 - [Endpoints](#endpoints)
 - [Usage](#usage)
 - [Sample Requests and Responses](#sample-requests-and-responses)
 - [Contributing](#contributing)
 
-
-- [Usage](#usage)
-
 ## View live
- 
- https://hng-task-1-2xlb.onrender.com/api/
+
+[View live](https://hng-task-1-2xlb.onrender.com/api/)
 
 ## Local Development Setup
 
@@ -71,9 +68,7 @@ pip install -r requirements.txt
 
 ### 5. Configure Environment Variables
 
-change the `.envexample` file in the project root  to `.env`, it contains necessary environment variables. You can usually find these settings in your project's `settings.py` file.
-
-
+Change the `.envexample` file in the project root to `.env`; it contains necessary environment variables. You can usually find these settings in your project's `settings.py` file.
 
 ### 6. Apply Database Migrations
 
@@ -82,7 +77,9 @@ Apply the database migrations to create the database schema:
 ```bash
 python manage.py makemigrations
 ```
-After that run 
+
+After that run:
+
 ```bash
 python manage.py migrate
 ```
@@ -105,12 +102,12 @@ python manage.py runserver
 
 The server should be accessible at `http://localhost:8000/` in your web browser.
 
-## Endpoint 
+## Endpoints
 
-- create `/api`
-- read `/api`
-- update `/api/personid` OR `/api/personname`
-- create `/api/personid` OR `/api/personname`
+- Create `/api`
+- Read `/api`
+- Update `/api/personid` OR `/api/personname`
+- Create `/api/personid` OR `/api/personname`
 
 ## Usage
 
@@ -139,6 +136,7 @@ Content-Type: application/json
     "name": "John Doe"
   }
 ```
+
 **Response (Error - Validation Failed):**
 
 ```json
@@ -146,6 +144,7 @@ Content-Type: application/json
     "detail": "JSON parse error - Expecting value: line 1 column 9 (char 8)"
 }
 ```
+
 ### Get a Person
 
 **Request:**
@@ -157,6 +156,7 @@ OR
 ```http
 GET /api/personName
 ```
+
 **Response (Success):**
 
 ```json
@@ -164,16 +164,16 @@ GET /api/personName
     "_id": "UniqueID",
     "name": "John Doe"
   }
-
 ```
 
 **Response (Error - Person Not Found):**
 
 ```json
-  {
+{
     "detail": "Not found."
 }
 ```
+
 ### Update a Person
 
 **Request:**
@@ -203,6 +203,7 @@ Content-Type: application/json
     "detail": "JSON parse error - Expecting value: line 1 column 9 (char 8)"
 }
 ```
+
 ### Delete a Person
 
 **Request:**
