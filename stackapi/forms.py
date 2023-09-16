@@ -1,9 +1,9 @@
 from django import forms
-from .models import Person
+from .models import Stack
 
 
-class PersonForm(forms.ModelForm):
+class StackForm(forms.ModelForm):
     class Meta:
-      model = Person
+      model = Stack
       fields = ['name']
 
