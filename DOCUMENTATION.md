@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This API provides basic CRUD (Create, Read, Update, Delete) operations for managing "persons." It is built using Node.js, Express, and Mongoose, and connects to a MongoDB database. The API allows you to create, retrieve, update, and delete person records.
+This API provides basic CRUD (Create, Read, Update, Delete) operations for managing "persons." It is built using Django, Django restframework, and PostgreSQL, and connects to a Postgres database. The API allows you to create, retrieve, update, and delete person records.
 
 ## API Base URL
 The base URL for this API is `/api` .
